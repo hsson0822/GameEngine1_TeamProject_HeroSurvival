@@ -4,32 +4,47 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float moveSpeed = 10.0f;
+    private float moveSpeed = 20.0f;
     private int hp;
+
+    float hAxis;
+    float vAxis;
+    Vector3 moveVec;
 
     private void Awake()
     {
         hp = 100;
+
+        hAxis = Input.GetAxisRaw("Horizontal");
+        vAxis = Input.GetAxisRaw("Vertical");
+
+
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-        }
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    //transform.Translate((Vector3.left + Vector3.forward) / 2 * moveSpeed * Time.deltaTime);
+        //}
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    //transform.Translate((Vector3.right + Vector3.back) / 2 * moveSpeed * Time.deltaTime);
+        //}
+        //if (Input.GetKey(KeyCode.W))
+        //{
+        //    //transform.Translate((cam.transform.forward.normalized + cam.transform.right.normalized) * moveSpeed * Time.deltaTime);
+        //}
+        //if (Input.GetKey(KeyCode.S))
+        //{
+        //    //transform.Translate((Vector3.left + Vector3.back) / 2 * moveSpeed * Time.deltaTime);
+        //}
+
+        Vector3 v = new Vector3(vAxis, 0, vAxis).normalized;
+        Vector3 h = new Vector3(hAxis, 0, -hAxis).normalized;
+        moveVec = (h + v);
+
+        transform.position += moveVec * moveSpeed * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
