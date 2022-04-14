@@ -1,22 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    private float moveSpeed = 20.0f;
     private int hp;
+    private int exp;
+    private int level;
 
+    private float moveSpeed = 20.0f;
     float hAxis;
     float vAxis;
     Vector3 moveVec;
 
+    private Slider expBar;
+
     private void Awake()
     {
         hp = 100;
+        level = 1;
+        exp = 0;
 
-        
-
+        expBar = GameObject.Find("Canvas").gameObject.transform.Find("ExpBar").GetComponent<Slider>();
+        StartCoroutine(GetExp(0));
 
     }
 
@@ -47,11 +54,16 @@ public class Player : MonoBehaviour
         moveVec = (h + v);
 
         transform.position += moveVec * moveSpeed * Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            StartCoroutine(GetExp(10));
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             StartCoroutine(GetDamage(10));
 
@@ -60,12 +72,24 @@ public class Player : MonoBehaviour
 
             Debug.Log("HP : " + hp);
         }
+
+        if (collision.gameObject.CompareTag("Exp"))
+        {
+            StartCoroutine(GetExp(10));
+        }
     }
 
     IEnumerator GetDamage(int damage)
     {
         hp -= damage;
 
+        yield return null;
+    }
+
+    IEnumerator GetExp(int e)
+    {
+        exp += e;
+        expBar.value = (float)exp/1000;
         yield return null;
     }
 }
