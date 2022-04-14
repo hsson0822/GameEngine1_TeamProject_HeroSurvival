@@ -15,8 +15,7 @@ public class Player : MonoBehaviour
     {
         hp = 100;
 
-        hAxis = Input.GetAxisRaw("Horizontal");
-        vAxis = Input.GetAxisRaw("Vertical");
+        
 
 
     }
@@ -39,6 +38,9 @@ public class Player : MonoBehaviour
         //{
         //    //transform.Translate((Vector3.left + Vector3.back) / 2 * moveSpeed * Time.deltaTime);
         //}
+
+        hAxis = Input.GetAxisRaw("Horizontal");
+        vAxis = Input.GetAxisRaw("Vertical");
 
         Vector3 v = new Vector3(vAxis, 0, vAxis).normalized;
         Vector3 h = new Vector3(hAxis, 0, -hAxis).normalized;
