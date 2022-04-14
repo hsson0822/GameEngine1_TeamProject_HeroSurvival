@@ -7,14 +7,14 @@ public class CameraController : MonoBehaviour
     Transform trans;
     GameObject player;
 
-    public Vector3 CamRotation = new Vector3(45, 0, 0);
+    public Vector3 CamRotation = new Vector3(45, 30, 0);
     public Vector3 CamPosition;
 
     private void Start()
     {
         trans = gameObject.GetComponent<Transform>();
         player = GameObject.Find("Player");
-        CamPosition = new Vector3(0, 15, -15);
+        CamPosition = new Vector3(0, 5, 0);
     }
 
     private void LateUpdate()
