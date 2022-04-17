@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InGameManager : MonoBehaviour
 {
@@ -11,13 +12,18 @@ public class InGameManager : MonoBehaviour
 
     private GameObject player;
 
+    private float playTime = 0.0f;
+    private GameObject playTimeTxt;
+
     private void Awake()
     {
         itemParent = GameObject.Find("Items");
         player = GameObject.Find("Player");
+
+        playTimeTxt = GameObject.Find("Canvas").transform.Find("PlayTime").gameObject;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         count += Time.deltaTime;
 
@@ -30,5 +36,9 @@ public class InGameManager : MonoBehaviour
             GameObject.Instantiate(item, itemParent.transform);
             count = 0;
         }
+
+
+        playTime += Time.deltaTime;
+        playTimeTxt.GetComponent<TextMeshProUGUI>().text = $"{playTime:N2}";
     }
 }
