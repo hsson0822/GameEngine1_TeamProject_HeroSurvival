@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +6,19 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
     private int hp;
     private int exp;
     private int level;
+    bool dashDown;          // Get key left shift 
 
-    private float moveSpeed = 20.0f;
+    public float moveSpeed = 20.0f;
+
     float hAxis;
     float vAxis;
     Vector3 moveVec;
+
+    Animator anim;
 
     private Slider expBar;
 
@@ -25,8 +31,10 @@ public class Player : MonoBehaviour
         expBar = GameObject.Find("Canvas").gameObject.transform.Find("ExpBar").GetComponent<Slider>();
         StartCoroutine(GetExp(0));
 
+        anim = GetComponent<Animator>();
     }
 
+   
     private void FixedUpdate()
     {
         //if (Input.GetKey(KeyCode.A))
@@ -53,13 +61,29 @@ public class Player : MonoBehaviour
         Vector3 h = new Vector3(hAxis, 0, -hAxis).normalized;
         moveVec = (h + v);
 
-        transform.position += moveVec * moveSpeed * Time.deltaTime;
+        if(dashDown)// moveSpeed * 2.0 
+            transform.position += moveVec * moveSpeed * 2.0f * Time.deltaTime;
+        else
+            transform.position += moveVec * moveSpeed * Time.deltaTime;
+        
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             StartCoroutine(GetExp(10));
         }
+
+  
+
     }
+    
+    private void Update()
+    {
+        anim.SetBool("isRun", moveVec != Vector3.zero);
+        anim.SetBool("isDash", dashDown);
+
+        dashDown = Input.GetButton("Dash");
+    }
+
 
     private void OnCollisionEnter(Collision collision)
     {
