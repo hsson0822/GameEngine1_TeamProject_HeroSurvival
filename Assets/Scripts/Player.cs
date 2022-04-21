@@ -103,6 +103,11 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(GetExp(10));
         }
+
+        if(collision.gameObject.CompareTag("Item"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 
     IEnumerator GetDamage(int damage)
