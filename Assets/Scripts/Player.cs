@@ -82,6 +82,8 @@ public class Player : MonoBehaviour
         anim.SetBool("isDash", dashDown);
 
         dashDown = Input.GetButton("Dash");
+        
+        transform.LookAt(transform.position + moveVec); // round angel 
     }
 
 
