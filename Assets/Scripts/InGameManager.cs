@@ -5,6 +5,8 @@ using TMPro;
 
 public class InGameManager : MonoBehaviour
 {
+    static public InGameManager Instance;
+
     public GameObject item;
     private GameObject itemParent;
     private float itemTime = 5.0f;
@@ -17,6 +19,11 @@ public class InGameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+            Destroy(this);
+
+        Instance = this;
+
         itemParent = GameObject.Find("Items");
         player = GameObject.Find("Player");
 

@@ -5,6 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
+    static public TitleManager Instance;
+
+    private void Awake()
+    {
+        if (Instance != null)
+            Destroy(this);
+
+        Instance = this;
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);
