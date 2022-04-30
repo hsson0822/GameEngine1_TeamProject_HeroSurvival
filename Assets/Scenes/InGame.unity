@@ -230,6 +230,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259005641}
   m_CullTransparentMesh: 1
+--- !u!1 &408579325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 408579326}
+  m_Layer: 0
+  m_Name: ShotPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &408579326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408579325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.238, y: 0.636, z: 1.1612}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4162569639480809273}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &447116216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,6 +1583,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  Bullet: {fileID: 1092594186808910284, guid: 7eb8140a51b741d46ba0b6a252683ea4, type: 3}
+--- !u!4 &4162569639480809273 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5676979857500782406, guid: 4f25477cfd4165546b681454142a1683, type: 3}
+  m_PrefabInstance: {fileID: 7710670996432057568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7710670996432057568
 PrefabInstance:
   m_ObjectHideFlags: 0

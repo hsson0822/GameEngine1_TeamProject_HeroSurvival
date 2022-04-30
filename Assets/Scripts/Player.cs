@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
 
     private Slider expBar;
 
+    private GameObject shotPos;
+    public GameObject Bullet;
+    private float shotTime;
+
     private void Awake()
     {
         hp = 100;
@@ -32,9 +36,14 @@ public class Player : MonoBehaviour
         StartCoroutine(GetExp(0));
 
         anim = GetComponent<Animator>();
+
+        shotPos = transform.Find("ShotPos").gameObject;
+        shotTime = 0f;
+
+        StartCoroutine(ShotBullet());
     }
 
-   
+
     private void FixedUpdate()
     {
         //if (Input.GetKey(KeyCode.A))
@@ -61,28 +70,27 @@ public class Player : MonoBehaviour
         Vector3 h = new Vector3(hAxis, 0, -hAxis).normalized;
         moveVec = (h + v);
 
-        if(dashDown)// moveSpeed * 2.0 
+        if (dashDown)// moveSpeed * 2.0 
             transform.position += moveVec * moveSpeed * 2.0f * Time.deltaTime;
         else
             transform.position += moveVec * moveSpeed * Time.deltaTime;
-        
+
+
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             StartCoroutine(GetExp(10));
         }
 
-  
-
     }
-    
+
     private void Update()
     {
         anim.SetBool("isRun", moveVec != Vector3.zero);
         anim.SetBool("isDash", dashDown);
 
         dashDown = Input.GetButton("Dash");
-        
+
         transform.LookAt(transform.position + moveVec); // round angel 
     }
 
@@ -104,7 +112,7 @@ public class Player : MonoBehaviour
             StartCoroutine(GetExp(10));
         }
 
-        if(collision.gameObject.CompareTag("Item"))
+        if (collision.gameObject.CompareTag("Item"))
         {
             Destroy(collision.gameObject);
         }
@@ -120,7 +128,23 @@ public class Player : MonoBehaviour
     IEnumerator GetExp(int e)
     {
         exp += e;
-        expBar.value = (float)exp/1000;
+        expBar.value = (float)exp / 1000;
         yield return null;
+    }
+
+    IEnumerator ShotBullet()
+    {
+        while (true)
+        {
+            shotTime += Time.deltaTime;
+
+            if (shotTime > 2.0f)
+            {
+                GameObject temp = Instantiate(Bullet, shotPos.transform.position, transform.rotation);
+                shotTime = 0f;
+            }
+            yield return null;
+        }
+
     }
 }
