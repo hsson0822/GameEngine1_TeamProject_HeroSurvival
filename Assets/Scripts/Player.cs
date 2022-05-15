@@ -4,15 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+enum Weapon
 {
 
+}
+
+public class Player : MonoBehaviour
+{
     private int hp;
     private int exp;
     private int level;
-    bool dashDown;          // Get key left shift 
+    private Dictionary<Weapon, int> weaponLevel;
+
+    bool pause = false;
 
     public float moveSpeed = 20.0f;
+    bool dashDown;          // Get key left shift 
 
     float hAxis;
     float vAxis;
@@ -31,9 +38,9 @@ public class Player : MonoBehaviour
         hp = 100;
         level = 1;
         exp = 0;
+        weaponLevel = new Dictionary<Weapon, int>();
 
         expBar = GameObject.Find("Canvas").gameObject.transform.Find("ExpBar").GetComponent<Slider>();
-        StartCoroutine(GetExp(0));
 
         anim = GetComponent<Animator>();
 
@@ -42,7 +49,6 @@ public class Player : MonoBehaviour
 
         StartCoroutine(ShotBullet());
     }
-
 
     private void FixedUpdate()
     {
@@ -79,7 +85,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            StartCoroutine(GetExp(10));
+            GetExp(10);
         }
 
     }
@@ -92,6 +98,7 @@ public class Player : MonoBehaviour
         dashDown = Input.GetButton("Dash");
 
         transform.LookAt(transform.position + moveVec); // round angel 
+
     }
 
 
@@ -99,7 +106,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            StartCoroutine(GetDamage(10));
+            GetDamage(10);
 
             if (hp < 0)
                 gameObject.SetActive(false);
@@ -109,7 +116,11 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Exp"))
         {
-            StartCoroutine(GetExp(10));
+            GetExp(10);
+            if (exp > 100)
+            {
+                Time.timeScale = 0.0f;
+            }
         }
 
         if (collision.gameObject.CompareTag("Item"))
@@ -118,18 +129,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator GetDamage(int damage)
-    {
-        hp -= damage;
-
-        yield return null;
-    }
-
-    IEnumerator GetExp(int e)
+    void GetExp(int e)
     {
         exp += e;
         expBar.value = (float)exp / 1000;
-        yield return null;
+    }
+
+    void GetDamage(int damage)
+    {
+        hp -= damage;
     }
 
     IEnumerator ShotBullet()
