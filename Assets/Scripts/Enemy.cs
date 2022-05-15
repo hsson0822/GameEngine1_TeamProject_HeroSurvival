@@ -30,10 +30,15 @@ public class Enemy : MonoBehaviour
             Debug.Log("¸ÂÀ½");
             if(hp <= 0)
             {
-                Destroy(gameObject);
+                Hide();
                 Destroy(collision.gameObject);
             }
         }
+    }
+
+    private void Hide()
+    {
+        gameObject.SetActive(false);
     }
 
     void GetDamage(int damage)

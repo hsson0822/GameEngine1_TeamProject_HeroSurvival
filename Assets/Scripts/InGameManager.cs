@@ -17,6 +17,9 @@ public class InGameManager : MonoBehaviour
     private float playTime = 0.0f;
     private GameObject playTimeTxt;
 
+    public ObjectPoolingManager poolingManager;
+
+
     private void Awake()
     {
         if (Instance != null)
@@ -28,6 +31,12 @@ public class InGameManager : MonoBehaviour
         player = GameObject.Find("Player");
 
         playTimeTxt = GameObject.Find("Canvas").transform.Find("PlayTime").gameObject;
+
+        StartCoroutine(EnemyControl());
+
+        var position = new Vector3(Random.Range(50f, 100f), 1f, Random.Range(50f, 100f));
+        var rotation = new Vector3(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f));
+        poolingManager.Get("Enemy1", position, Quaternion.Euler(rotation));
     }
 
     void FixedUpdate()
@@ -47,5 +56,46 @@ public class InGameManager : MonoBehaviour
 
         playTime += Time.deltaTime;
         playTimeTxt.GetComponent<TextMeshProUGUI>().text = $"{playTime:N2}";
+    }
+
+    IEnumerator EnemyControl()
+    {
+        double time = 0.0f;
+
+        int index = 0;
+
+        //var position = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        //var rotation = new Vector3(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f));
+        //poolingManager.Get(objectName, position, Quaternion.Euler(rotation));
+
+        while (true)
+        {
+            time += Time.deltaTime;
+
+            if (time > 50.0f)
+            {
+                switch(index)
+                {
+                    case 0:
+                        break;
+
+                    case 1:
+                        break;
+
+                    case 2:
+                        break;
+
+                    case 3:
+                        break;
+
+                    case 4:
+                        break;
+                }
+                ++index;
+                time = 0.0f;
+            }
+
+            yield return null;
+        }
     }
 }
