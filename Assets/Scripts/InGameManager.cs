@@ -38,8 +38,9 @@ public class InGameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        count += Time.deltaTime;
 
+        // 시간을 계산해서 일정 시간마다 필드에 생성하는 코드
+        count += Time.deltaTime;
         if (count > itemTime)
         {
             float x = Random.Range(player.transform.position.x - 100.0f, player.transform.position.x + 100.0f);
@@ -50,20 +51,17 @@ public class InGameManager : MonoBehaviour
             count = 0;
         }
 
-
+        // 플레이 타임 코드
         playTime += Time.deltaTime;
         playTimeTxt.GetComponent<TextMeshProUGUI>().text = $"{playTime:N2}";
     }
 
+    // 적의 생성을 관리하는 코루틴
     IEnumerator EnemyControl()
     {
         double time = 0.0f;
 
         int index = 0;
-
-        //var position = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        //var rotation = new Vector3(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f));
-        //poolingManager.Get(objectName, position, Quaternion.Euler(rotation));
 
         while (true)
         {
@@ -98,6 +96,7 @@ public class InGameManager : MonoBehaviour
         }
     }
 
+    // 웨이브 때 몬스터의 위치를 랜덤으로 정하고 생성하는 함수
     void Wave()
     {
         for (int i = 0; i < 30; ++i)
