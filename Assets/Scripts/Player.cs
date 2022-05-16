@@ -52,22 +52,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //    //transform.Translate((Vector3.left + Vector3.forward) / 2 * moveSpeed * Time.deltaTime);
-        //}
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    //transform.Translate((Vector3.right + Vector3.back) / 2 * moveSpeed * Time.deltaTime);
-        //}
-        //if (Input.GetKey(KeyCode.W))
-        //{
-        //    //transform.Translate((cam.transform.forward.normalized + cam.transform.right.normalized) * moveSpeed * Time.deltaTime);
-        //}
-        //if (Input.GetKey(KeyCode.S))
-        //{
-        //    //transform.Translate((Vector3.left + Vector3.back) / 2 * moveSpeed * Time.deltaTime);
-        //}
 
         hAxis = Input.GetAxisRaw("Horizontal");
         vAxis = Input.GetAxisRaw("Vertical");
@@ -104,6 +88,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        // 적과 충돌 처리
         if (collision.gameObject.CompareTag("Enemy"))
         {
             GetDamage(10);
@@ -114,6 +99,7 @@ public class Player : MonoBehaviour
             Debug.Log("HP : " + hp);
         }
 
+        // 경험치볼과의 충돌 처리
         if (collision.gameObject.CompareTag("Exp"))
         {
             GetExp(10);
@@ -122,26 +108,31 @@ public class Player : MonoBehaviour
                 Time.timeScale = 0.0f;
             }
         }
-
+        
+        // 아이템과의 충돌처리
         if (collision.gameObject.CompareTag("Item"))
         {
             Destroy(collision.gameObject);
         }
     }
 
+    // 경험치 추가 함수
     void GetExp(int e)
     {
         exp += e;
         expBar.value = (float)exp / 1000;
     }
 
+    // 데미지 함수
     void GetDamage(int damage)
     {
         hp -= damage;
     }
 
+    // 총알 발사 코루틴
     IEnumerator ShotBullet()
     {
+        // 일정 시간마다 자동 발사
         while (true)
         {
             shotTime += Time.deltaTime;

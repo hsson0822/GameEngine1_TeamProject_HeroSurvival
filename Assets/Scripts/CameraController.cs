@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        // 카메라의 위치 초기화
         trans = gameObject.GetComponent<Transform>();
         player = GameObject.Find("Player");
         CamRotation = new Vector3(45, 45, 0);
@@ -20,6 +21,7 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
+        // 플레이어를 따라 움직임
         transform.position = player.transform.position + CamPosition;
         transform.localRotation = Quaternion.Euler(CamRotation);     //원하는 카메라 회전값 적용
     }

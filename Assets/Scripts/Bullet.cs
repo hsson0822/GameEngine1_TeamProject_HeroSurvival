@@ -10,9 +10,9 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
+        // 생성되자마자 앞으로 발사
         rigid = GetComponent<Rigidbody>();
         shotSpeed = 3000.0f;
-
         rigid.AddForce(transform.forward * shotSpeed);
 
         time = 0f;
@@ -21,8 +21,8 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // 일정 시간 후 자동 파괴
         time += Time.deltaTime;
-
         if (time > 5.0f)
         {
             Destroy(gameObject);

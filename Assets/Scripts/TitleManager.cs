@@ -15,11 +15,13 @@ public class TitleManager : MonoBehaviour
         Instance = this;
     }
 
+    // 게임씬으로 이동
     public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
 
+    // 게임 종료
     public void ExitGame()
     {
         Debug.Log("AAA");
