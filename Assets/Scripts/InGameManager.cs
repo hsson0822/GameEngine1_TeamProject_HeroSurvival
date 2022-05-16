@@ -87,7 +87,7 @@ public class InGameManager : MonoBehaviour
                 //    case 4:
                 //        break;
                 //}
-                Wave();
+                Wave("Enemy1");
                 ++index;
                 time = 0.0f;
             }
@@ -97,7 +97,7 @@ public class InGameManager : MonoBehaviour
     }
 
     // 웨이브 때 몬스터의 위치를 랜덤으로 정하고 생성하는 함수
-    void Wave()
+    void Wave(string objectName)
     {
         for (int i = 0; i < 30; ++i)
         {
@@ -115,7 +115,7 @@ public class InGameManager : MonoBehaviour
             float z = z_b + b;
 
             Vector3 randomPosition = new Vector3(x, 1.0f, z);
-            poolingManager.Get("Enemy1", randomPosition, Quaternion.Euler(rotation));
+            poolingManager.Get(objectName, randomPosition, Quaternion.Euler(rotation));
 
         }
     }
