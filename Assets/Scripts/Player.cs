@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 enum Weapon
 {
-
+    Gun,
+    Satellite
 }
 
 public class Player : MonoBehaviour
@@ -14,7 +15,9 @@ public class Player : MonoBehaviour
     private int hp;
     private int exp;
     private int level;
+
     private Dictionary<Weapon, int> weaponLevel;
+    public GameObject satel;
 
     bool pause = false;
 
@@ -38,6 +41,7 @@ public class Player : MonoBehaviour
         hp = 100;
         level = 1;
         exp = 0;
+        
         weaponLevel = new Dictionary<Weapon, int>();
 
         expBar = GameObject.Find("Canvas").gameObject.transform.Find("ExpBar").GetComponent<Slider>();
@@ -70,6 +74,13 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             GetExp(10);
+        }
+
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            satel = GameObject.Instantiate(satel);
+           // satel.transform.position = transform.position;
+            //satel.transform.position.x += new Vector3(3f, 0f, 0f);
         }
 
     }

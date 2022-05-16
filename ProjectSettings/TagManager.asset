@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Exp
   - Bullet
+  - Satellite
   layers:
   - Default
   - TransparentFX
