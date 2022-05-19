@@ -46,8 +46,10 @@ public class InGameManager : MonoBehaviour
             float x = Random.Range(player.transform.position.x - 100.0f, player.transform.position.x + 100.0f);
             float z = Random.Range(player.transform.position.z - 100.0f, player.transform.position.z + 100.0f);
             Vector3 pos = new Vector3(x, 1, z);
+
             item.transform.position = pos;
-            GameObject.Instantiate(item, itemParent.transform);
+            //GameObject.Instantiate(item, itemParent.transform);
+            poolingManager.Get("Item1", itemParent.transform.position, Quaternion.Euler(new Vector3(0,0,0)));
             count = 0;
         }
 

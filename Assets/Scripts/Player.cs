@@ -117,13 +117,14 @@ public class Player : MonoBehaviour
             if (exp > 100)
             {
                 Time.timeScale = 0.0f;
+                collision.gameObject.SetActive(false);
             }
         }
         
         // 아이템과의 충돌처리
         if (collision.gameObject.CompareTag("Item"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
     }
 
