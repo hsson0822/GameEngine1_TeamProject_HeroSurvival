@@ -69,13 +69,6 @@ public class Player : MonoBehaviour
         else
             transform.position += moveVec * moveSpeed * Time.deltaTime;
 
-
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            GetExp(10);
-        }
-
         if(Input.GetKeyDown(KeyCode.V))
         {
             satel = GameObject.Instantiate(satel);
@@ -117,8 +110,8 @@ public class Player : MonoBehaviour
             if (exp > 100)
             {
                 Time.timeScale = 0.0f;
-                collision.gameObject.SetActive(false);
             }
+            collision.gameObject.SetActive(false);
         }
         
         // 아이템과의 충돌처리
