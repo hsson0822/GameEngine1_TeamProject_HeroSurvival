@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     NavMeshAgent nav;
     GameObject target;
 
+    public ObjectPoolingManager poolingManager;
+
     private void Awake()
     {
         hp = 100;
@@ -17,6 +19,8 @@ public class Enemy : MonoBehaviour
         // 타겟을 플레이어로 설정
         nav = GetComponent<NavMeshAgent>();
         target = GameObject.Find("Player");
+
+        poolingManager = GameObject.Find("ObjectPoolingManager").GetComponent<ObjectPoolingManager>();
     }
     void FixedUpdate()
     {
@@ -33,10 +37,28 @@ public class Enemy : MonoBehaviour
             Debug.Log("맞음");
             if(hp <= 0)
             {
+                poolingManager.Get("ExpBall", transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
                 Hide();
-                Destroy(collision.gameObject);
+            }
+            Destroy(collision.gameObject);
+
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Satellite"))
+        {
+            GetDamage(10);
+            Debug.Log("맞음2");
+            if (hp <= 0)
+            {
+                Hide();
+                poolingManager.Get("ExpBall", transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
             }
         }
+        
     }
 
     // 오브젝트가 비활성화
@@ -46,7 +68,7 @@ public class Enemy : MonoBehaviour
     }
 
     // 데미지 함수
-    void GetDamage(int damage)
+    public void GetDamage(int damage)
     {
         hp -= damage;
     }
