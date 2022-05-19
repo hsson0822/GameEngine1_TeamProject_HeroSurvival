@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 3055007243468011885, guid: 75066071db4eb5c4d9a37306d95db1c8, type: 3}
-  poolingManager: {fileID: 0}
+  poolingManager: {fileID: 1312227384}
 --- !u!4 &570147078
 Transform:
   m_ObjectHideFlags: 0
@@ -1571,6 +1571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcab3c2f2e034f7478b3c370de22e79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  satel: {fileID: 4655303459652485555, guid: 1bae2cd9d854dd44b8973b789e5c42c9, type: 3}
   moveSpeed: 10
   Bullet: {fileID: 1092594186808910284, guid: 7eb8140a51b741d46ba0b6a252683ea4, type: 3}
 --- !u!4 &4162569639480809273 stripped

@@ -7,7 +7,6 @@ public class InGameManager : MonoBehaviour
 {
     static public InGameManager Instance;
 
-    public GameObject item;
     private GameObject itemParent;
     private float itemTime = 5.0f;
     private float count = 0.0f;
@@ -47,9 +46,7 @@ public class InGameManager : MonoBehaviour
             float z = Random.Range(player.transform.position.z - 100.0f, player.transform.position.z + 100.0f);
             Vector3 pos = new Vector3(x, 1, z);
 
-            item.transform.position = pos;
-            //GameObject.Instantiate(item, itemParent.transform);
-            poolingManager.Get("Item1", itemParent.transform.position, Quaternion.Euler(new Vector3(0,0,0)));
+            poolingManager.Get("Item1", pos, Quaternion.Euler(new Vector3(0,0,0)));
             count = 0;
         }
 
