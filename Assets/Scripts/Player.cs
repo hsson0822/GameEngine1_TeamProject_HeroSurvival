@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
 
         weaponLevel = new Dictionary<Weapon, int>();
 
+        maxExp = new int[10];
         InitExp();
         expBar = GameObject.Find("Canvas").gameObject.transform.Find("ExpBar").GetComponent<Slider>();
 
