@@ -108,15 +108,17 @@ public class Player : MonoBehaviour
         // 경험치볼과의 충돌 처리
         if (collision.gameObject.CompareTag("Exp"))
         {
+            collision.gameObject.SetActive(false);
             GetExp(10);
             if (exp > maxExp[level-1])
             {
+                Debug.Log("exp" + exp);
+                Debug.Log("maxexp" + maxExp[level-1]);
                 Time.timeScale = 0.0f;
                 InGameManager.Instance.isPause = true;
                 ++level;
                 exp = 0;
             }
-            collision.gameObject.SetActive(false);
         }
 
         // 아이템과의 충돌처리
@@ -129,7 +131,7 @@ public class Player : MonoBehaviour
     void InitExp()
     {
         for (int i = 0; i < 10; ++i)
-            maxExp[i] = i * 100;
+            maxExp[i] = (i+1) * 100;
     }
 
     // 경험치 추가 함수
