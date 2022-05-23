@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6fdee724ef11a40a514abe1b5c5b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPause: 1
   poolingManager: {fileID: 1312227384}
 --- !u!4 &570147078
 Transform:
