@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 {
     private int hp;
     private int exp;
+    private int[] maxExp;
     private int level;
 
     private Dictionary<Weapon, int> weaponLevel;
@@ -40,10 +41,10 @@ public class Player : MonoBehaviour
     {
         hp = 100;
         level = 1;
-        exp = 0;
-        
+
         weaponLevel = new Dictionary<Weapon, int>();
 
+        InitExp();
         expBar = GameObject.Find("Canvas").gameObject.transform.Find("ExpBar").GetComponent<Slider>();
 
         anim = GetComponent<Animator>();
@@ -69,10 +70,10 @@ public class Player : MonoBehaviour
         else
             transform.position += moveVec * moveSpeed * Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             satel = GameObject.Instantiate(satel);
-           // satel.transform.position = transform.position;
+            // satel.transform.position = transform.position;
             //satel.transform.position.x += new Vector3(3f, 0f, 0f);
         }
 
@@ -107,20 +108,27 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Exp"))
         {
             GetExp(10);
-            if (exp > 100)
+            if (exp > maxExp[level-1])
             {
                 Time.timeScale = 0.0f;
                 InGameManager.Instance.isPause = true;
                 ++level;
+                exp = 0;
             }
             collision.gameObject.SetActive(false);
         }
-        
+
         // 아이템과의 충돌처리
         if (collision.gameObject.CompareTag("Item"))
         {
             collision.gameObject.SetActive(false);
         }
+    }
+
+    void InitExp()
+    {
+        for (int i = 0; i < 10; ++i)
+            maxExp[i] = i * 100;
     }
 
     // 경험치 추가 함수
