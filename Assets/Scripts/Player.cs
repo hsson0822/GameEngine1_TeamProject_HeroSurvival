@@ -109,7 +109,9 @@ public class Player : MonoBehaviour
             GetExp(10);
             if (exp > 100)
             {
-                //Time.timeScale = 0.0f;
+                Time.timeScale = 0.0f;
+                InGameManager.Instance.isPause = true;
+                ++level;
             }
             collision.gameObject.SetActive(false);
         }

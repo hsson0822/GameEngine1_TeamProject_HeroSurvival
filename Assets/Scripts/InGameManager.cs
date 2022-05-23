@@ -15,6 +15,7 @@ public class InGameManager : MonoBehaviour
 
     private float playTime = 0.0f;
     private GameObject playTimeTxt;
+    public bool isPause = false;
 
     public ObjectPoolingManager poolingManager;
 
