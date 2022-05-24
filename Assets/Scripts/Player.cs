@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 enum Weapon
 {
-    Gun,
+    GunSpeed,
+    GunPower,
     Satellite
 }
 
@@ -110,7 +111,7 @@ public class Player : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             GetExp(10);
-            if (exp > maxExp[level-1])
+            if (exp >= maxExp[level-1])
             {
                 Debug.Log("exp" + exp);
                 Debug.Log("maxexp" + maxExp[level-1]);
@@ -125,6 +126,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Item"))
         {
             collision.gameObject.SetActive(false);
+            string itemName = collision.transform.name;
+            TakeItem(itemName);
         }
     }
 
@@ -163,5 +166,23 @@ public class Player : MonoBehaviour
             yield return null;
         }
 
+    }
+
+    void TakeItem(string item)
+    {
+        switch(item)
+        {
+            case "Item1":
+                break;
+
+            case "Item2":
+                break;
+
+            case "Item3":
+                break;
+
+            case "Item4":
+                break;
+        }
     }
 }
