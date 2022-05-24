@@ -13,18 +13,17 @@ enum Weapon
 
 public class Player : MonoBehaviour
 {
+    private int maxHp;
     private int hp;
-    private int exp;
     private int[] maxExp;
+    private int exp;
     private int level;
-
-    private Dictionary<Weapon, int> weaponLevel;
-    public GameObject satel;
-
-    bool pause = false;
 
     public float moveSpeed = 20.0f;
     bool dashDown;          // Get key left shift 
+
+    private Dictionary<Weapon, int> weaponLevel;
+    public GameObject satel;
 
     float hAxis;
     float vAxis;
@@ -40,7 +39,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        hp = 100;
+        maxHp = hp = 100;
         level = 1;
 
         weaponLevel = new Dictionary<Weapon, int>();
