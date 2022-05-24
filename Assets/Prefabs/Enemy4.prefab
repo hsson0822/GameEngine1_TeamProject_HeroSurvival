@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 3352828017897629265}
   - component: {fileID: 3448299006200604827}
   - component: {fileID: 3352940933153187791}
+  - component: {fileID: 2253631703218568555}
   - component: {fileID: 3352940933153187824}
   m_Layer: 0
   m_Name: Enemy4
@@ -134,6 +135,19 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0.06, y: 1.83, z: 0.42}
+--- !u!114 &2253631703218568555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3353986855685496755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da6655290bbd5f4b92f73d2af06ef5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolingManager: {fileID: 0}
 --- !u!195 &3352940933153187824
 NavMeshAgent:
   m_ObjectHideFlags: 0
