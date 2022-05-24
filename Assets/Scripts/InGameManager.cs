@@ -7,7 +7,6 @@ public class InGameManager : MonoBehaviour
 {
     static public InGameManager Instance;
 
-    private GameObject itemParent;
     private float itemTime = 5.0f;
     private float count = 0.0f;
 
@@ -27,33 +26,14 @@ public class InGameManager : MonoBehaviour
 
         Instance = this;
 
-        itemParent = GameObject.Find("Items");
         player = GameObject.Find("Player");
 
         playTimeTxt = GameObject.Find("Canvas").transform.Find("PlayTime").gameObject;
 
+        StartCoroutine(CheckTime());
+        StartCoroutine(ItemControl());
         StartCoroutine(EnemyControl());
 
-    }
-
-    void FixedUpdate()
-    {
-
-        // 시간을 계산해서 일정 시간마다 필드에 생성하는 코드
-        count += Time.deltaTime;
-        if (count > itemTime)
-        {
-            float x = Random.Range(player.transform.position.x - 100.0f, player.transform.position.x + 100.0f);
-            float z = Random.Range(player.transform.position.z - 100.0f, player.transform.position.z + 100.0f);
-            Vector3 pos = new Vector3(x, 1, z);
-
-            poolingManager.Get("Item1", pos, Quaternion.Euler(new Vector3(0,0,0)));
-            count = 0;
-        }
-
-        // 플레이 타임 코드
-        playTime += Time.deltaTime;
-        playTimeTxt.GetComponent<TextMeshProUGUI>().text = $"{playTime:N2}";
     }
 
     // 적의 생성을 관리하는 코루틴
@@ -67,27 +47,30 @@ public class InGameManager : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            if (time > 50.0f)
+            if (time > 10.0f)
             {
-                //switch (index)
-                //{
-                //    case 0:
-                //        Wave();
-                //        break;
+                switch (index)
+                {
+                    case 0:
+                        Wave("Enemy1");
+                        break;
 
-                //    case 1:
-                //        break;
+                    case 1:
+                        Wave("Enemy2");
+                        break;
 
-                //    case 2:
-                //        break;
+                    case 2:
+                        Wave("Enemy3");
+                        break;
 
-                //    case 3:
-                //        break;
+                    case 3:
+                        Wave("Enemy4");
+                        break;
 
-                //    case 4:
-                //        break;
-                //}
-                Wave("Enemy1");
+                    //case 4:
+                        //Wave("Enemy1");
+                        //break;
+                }
                 ++index;
                 time = 0.0f;
             }
@@ -117,6 +100,67 @@ public class InGameManager : MonoBehaviour
             Vector3 randomPosition = new Vector3(x, 1.0f, z);
             poolingManager.Get(objectName, randomPosition, Quaternion.Euler(rotation));
 
+        }
+    }
+
+    IEnumerator ItemControl()
+    {
+        double time = 0.0f;
+
+        //int index = 0;
+
+        while (true)
+        {
+            time += Time.deltaTime;
+
+            if (time > itemTime)
+            {
+                //index = Random.Range(0, 5);
+                //switch (index)
+                //{
+                //    case 0:
+                //        Wave();
+                //        break;
+
+                //    case 1:
+                //        break;
+
+                //    case 2:
+                //        break;
+
+                //    case 3:
+                //        break;
+
+                //    case 4:
+                //        break;
+                //}
+                SpawnItem("Item1");
+                time = 0.0f;
+            }
+
+            yield return null;
+        }
+    }
+
+    void SpawnItem(string objectName)
+    {
+
+        float x = Random.Range(player.transform.position.x - 100.0f, player.transform.position.x + 100.0f);
+        float z = Random.Range(player.transform.position.z - 100.0f, player.transform.position.z + 100.0f);
+        Vector3 pos = new Vector3(x, 1, z);
+
+        poolingManager.Get(objectName, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
+
+    }
+
+    IEnumerator CheckTime()
+    {
+        while (true)
+        {
+            // 플레이 타임 코드
+            playTime += Time.deltaTime;
+            playTimeTxt.GetComponent<TextMeshProUGUI>().text = $"{playTime:N2}";
+            yield return null;
         }
     }
 }
