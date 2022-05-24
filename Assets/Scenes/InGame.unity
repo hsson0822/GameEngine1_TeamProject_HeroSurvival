@@ -1549,10 +1549,10 @@ RectTransform:
   m_Father: {fileID: 855472098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 1350, y: 20}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1671131705
 MonoBehaviour:
@@ -1756,8 +1756,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcab3c2f2e034f7478b3c370de22e79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  satel: {fileID: 4655303459652485555, guid: 1bae2cd9d854dd44b8973b789e5c42c9, type: 3}
   moveSpeed: 10
+  satel: {fileID: 4655303459652485555, guid: 1bae2cd9d854dd44b8973b789e5c42c9, type: 3}
   Bullet: {fileID: 1092594186808910284, guid: 7eb8140a51b741d46ba0b6a252683ea4, type: 3}
 --- !u!4 &4162569639480809273 stripped
 Transform:
