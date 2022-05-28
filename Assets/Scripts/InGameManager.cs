@@ -10,14 +10,14 @@ public class InGameManager : MonoBehaviour
     private float itemTime = 5.0f;
     private float count = 0.0f;
 
-    private GameObject player;
+    public GameObject player;
 
     private float playTime = 0.0f;
     private GameObject playTimeTxt;
     public bool isPause = false;
 
     public ObjectPoolingManager poolingManager;
-
+    public GameObject ItemSelectWindow;
 
     private void Awake()
     {
@@ -34,6 +34,7 @@ public class InGameManager : MonoBehaviour
         StartCoroutine(ItemControl());
         StartCoroutine(EnemyControl());
 
+        ItemSelectWindow.SetActive(false);
     }
 
     // 利狼 积己阑 包府窍绰 内风凭
@@ -68,8 +69,11 @@ public class InGameManager : MonoBehaviour
                         break;
 
                     //case 4:
-                        //Wave("Enemy1");
-                        //break;
+                    //Wave("Enemy1");
+                    //break;
+
+                    default:
+                        break;
                 }
                 ++index;
                 time = 0.0f;

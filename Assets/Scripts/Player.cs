@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-enum Weapon
+public enum Weapon
 {
     GunSpeed,
     GunPower,
@@ -13,7 +13,7 @@ enum Weapon
 
 public class Player : MonoBehaviour
 {
-    private int maxHp;
+    public int maxHp;
     private int hp;
     private int[] maxExp;
     private int exp;
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 20.0f;
     bool dashDown;          // Get key left shift 
 
-    private Dictionary<Weapon, int> weaponLevel;
+    public Dictionary<Weapon, int> weaponLevel;
     public GameObject satel;
 
     float hAxis;
@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
     private GameObject shotPos;
     public GameObject Bullet;
     private float shotTime;
+
+    public GameObject window;
 
     private void Awake()
     {
@@ -110,12 +112,18 @@ public class Player : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             GetExp(10);
-            if (exp >= maxExp[level-1])
+            //if (exp >= maxExp[level-1])
+            if (exp >= 10)
             {
                 Debug.Log("exp" + exp);
                 Debug.Log("maxexp" + maxExp[level-1]);
+
+                InGameManager.Instance.ItemSelectWindow.SetActive(true);
+
+
                 Time.timeScale = 0.0f;
                 InGameManager.Instance.isPause = true;
+
                 ++level;
                 exp = 0;
             }

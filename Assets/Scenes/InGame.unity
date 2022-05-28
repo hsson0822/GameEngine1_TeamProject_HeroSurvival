@@ -509,6 +509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 282312427}
+  - component: {fileID: 282312428}
   m_Layer: 5
   m_Name: ItemSelectWindow
   m_TagString: Untagged
@@ -540,6 +541,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &282312428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282312426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdabb6d8573416943826cc88ead86bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &350492675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,8 +1094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6fdee724ef11a40a514abe1b5c5b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   isPause: 1
   poolingManager: {fileID: 1312227384}
+  ItemSelectWindow: {fileID: 282312426}
 --- !u!4 &570147078
 Transform:
   m_ObjectHideFlags: 0
@@ -3283,9 +3298,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcab3c2f2e034f7478b3c370de22e79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 0
   moveSpeed: 10
   satel: {fileID: 4655303459652485555, guid: 1bae2cd9d854dd44b8973b789e5c42c9, type: 3}
   Bullet: {fileID: 1092594186808910284, guid: 7eb8140a51b741d46ba0b6a252683ea4, type: 3}
+  window: {fileID: 0}
 --- !u!4 &4162569639480809273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5676979857500782406, guid: 4f25477cfd4165546b681454142a1683, type: 3}
