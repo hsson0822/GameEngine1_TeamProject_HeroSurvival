@@ -48,7 +48,7 @@ public class InGameManager : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            if (time > 10.0f)
+            if (time > 5.0f)
             {
                 switch (index)
                 {
