@@ -20,8 +20,8 @@ MonoBehaviour:
   - prefabName: Item1
     prefabGameObject: {fileID: 5055387572651055547, guid: 7a569e7f0df1e2943af218ad453fa48e, type: 3}
   - prefabName: Enemy2
-    prefabGameObject: {fileID: 4745984571654643982, guid: 891ddafa6b45b7546a63f2ca81bfb56d, type: 3}
+    prefabGameObject: {fileID: 2645018721278731467, guid: fe374943cb98b074ebeb38a430fd6074, type: 3}
   - prefabName: Enemy3
     prefabGameObject: {fileID: 362700146134104703, guid: cb94f48c764f1aa4c82437f7f7b7bd40, type: 3}
   - prefabName: Enemy4
-    prefabGameObject: {fileID: 3353986855685496755, guid: 628e766ad8c07754b8cbbe3eed1d0d5d, type: 3}
+    prefabGameObject: {fileID: 4551154997562765592, guid: 628e766ad8c07754b8cbbe3eed1d0d5d, type: 3}
