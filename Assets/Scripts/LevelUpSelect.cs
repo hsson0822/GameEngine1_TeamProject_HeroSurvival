@@ -52,25 +52,25 @@ public class LevelUpSelect : MonoBehaviour
                     break;
 
                 case UpgradeList.SpeedUp:
-                    button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "이동속도";
+                    button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Move Speed";
                     button[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+10";
                     button[i].GetComponent<Button>().onClick.AddListener(() => speedHp());
                     break;
 
                 case UpgradeList.GunSpeed:
-                    button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "무기 속도";
+                    button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Weapon Speed";
                     button[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+10";
                     button[i].GetComponent<Button>().onClick.AddListener(() => gunSpeedUp());
                     break;
 
                 case UpgradeList.GunPower:
-                    button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "무기 공격력";
+                    button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Weapon Attack";
                     button[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+10";
                     button[i].GetComponent<Button>().onClick.AddListener(() => gunPowerUp());
                     break;
 
                 case UpgradeList.SatellitePower:
-                    button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "위성 공격";
+                    button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Satellite Attack";
                     button[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+10";
                     button[i].GetComponent<Button>().onClick.AddListener(() => satellitePowerUp());
                     break;
