@@ -18,6 +18,9 @@ public class InGameManager : MonoBehaviour
 
     public ObjectPoolingManager poolingManager;
     public GameObject ItemSelectWindow;
+    public GameObject GameOverWindow;
+
+    public GameObject TitleButton;
 
     private void Awake()
     {
@@ -35,6 +38,7 @@ public class InGameManager : MonoBehaviour
         StartCoroutine(EnemyControl());
 
         ItemSelectWindow.SetActive(false);
+        GameOverWindow.SetActive(false);
     }
 
     // 利狼 积己阑 包府窍绰 内风凭
