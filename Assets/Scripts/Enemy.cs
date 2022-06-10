@@ -26,6 +26,12 @@ public class Enemy : MonoBehaviour
     {
         // 프레임마다 플레이어 위치 추적
         nav.SetDestination(target.transform.position);
+
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            poolingManager.Get("ExpBall", transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+            Hide();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -50,7 +56,7 @@ public class Enemy : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Satellite"))
         {
-            GetDamage(10);
+            GetDamage(1000);
             Debug.Log("맞음2");
             if (hp <= 0)
             {
@@ -71,5 +77,7 @@ public class Enemy : MonoBehaviour
     public void GetDamage(int damage)
     {
         hp -= damage;
+        if (hp <= 0)
+            Hide();
     }
 }
