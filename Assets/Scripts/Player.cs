@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum Weapon
 {
@@ -102,7 +103,11 @@ public class Player : MonoBehaviour
             GetDamage(10);
 
             if (hp < 0)
+            {
                 gameObject.SetActive(false);
+                InGameManager.Instance.GameOverWindow.SetActive(true);
+                InGameManager.Instance.TitleButton.GetComponent<Button>().onClick.AddListener(() => { SceneManager.LoadScene(0); });
+            }
 
             //Debug.Log("HP : " + hp);
         }
