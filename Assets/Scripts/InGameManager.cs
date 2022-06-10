@@ -111,7 +111,7 @@ public class InGameManager : MonoBehaviour
     {
         double time = 0.0f;
 
-        //int index = 0;
+        int index = 0;
 
         while (true)
         {
@@ -119,26 +119,17 @@ public class InGameManager : MonoBehaviour
 
             if (time > itemTime)
             {
-                //index = Random.Range(0, 5);
-                //switch (index)
-                //{
-                //    case 0:
-                //        Wave();
-                //        break;
+                index = Random.Range(0, 5);
+                switch (index)
+                {
+                    case 0:
+                        SpawnItem("Item1");
+                        break;
 
-                //    case 1:
-                //        break;
-
-                //    case 2:
-                //        break;
-
-                //    case 3:
-                //        break;
-
-                //    case 4:
-                //        break;
-                //}
-                SpawnItem("Item1");
+                    case 1:
+                        SpawnItem("Item1");
+                        break;
+                }
                 time = 0.0f;
             }
 
@@ -148,12 +139,16 @@ public class InGameManager : MonoBehaviour
 
     void SpawnItem(string objectName)
     {
-
+        
         float x = Random.Range(player.transform.position.x - 100.0f, player.transform.position.x + 100.0f);
         float z = Random.Range(player.transform.position.z - 100.0f, player.transform.position.z + 100.0f);
         Vector3 pos = new Vector3(x, 1, z);
 
-        poolingManager.Get(objectName, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
+        if(objectName.Equals("Item1(Clone)") || objectName.Equals("Item1"))
+            poolingManager.Get(objectName, pos, Quaternion.Euler(new Vector3(-90, 0, 0)));
+        else
+            poolingManager.Get(objectName, pos, Quaternion.Euler(new Vector3(0, 0, 0)));
+        
 
     }
 

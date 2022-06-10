@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
             if (hp < 0)
                 gameObject.SetActive(false);
 
-            Debug.Log("HP : " + hp);
+            //Debug.Log("HP : " + hp);
         }
 
         // 경험치볼과의 충돌 처리
@@ -115,8 +115,8 @@ public class Player : MonoBehaviour
             //if (exp >= maxExp[level-1])
             if (exp >= 10)
             {
-                Debug.Log("exp" + exp);
-                Debug.Log("maxexp" + maxExp[level-1]);
+                //Debug.Log("exp" + exp);
+               // Debug.Log("maxexp" + maxExp[level-1]);
 
                 InGameManager.Instance.ItemSelectWindow.SetActive(true);
 
@@ -180,16 +180,21 @@ public class Player : MonoBehaviour
         switch(item)
         {
             case "Item1":
+            case "Item1(Clone)":
+                hp += 50;
+                if (hp > maxHp)
+                    hp = maxHp;
+                Debug.Log("체력 회복");
                 break;
 
-            case "Item2":
+            case "Item2(Clone)":
                 break;
 
-            case "Item3":
-                break;
+            //case "Item3(Clone)":
+            //    break;
 
-            case "Item4":
-                break;
+            //case "Item4(Clone)":
+            //    break;
         }
     }
 }
