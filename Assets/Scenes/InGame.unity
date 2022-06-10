@@ -2033,6 +2033,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4549921281013549306, guid: 628e766ad8c07754b8cbbe3eed1d0d5d, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7274151046717886691, guid: 628e766ad8c07754b8cbbe3eed1d0d5d, type: 3}
       propertyPath: m_Name
       value: Enemy4
@@ -2126,7 +2130,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1330152963
 GameObject:
@@ -2208,7 +2212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 367887947205126013, guid: cb94f48c764f1aa4c82437f7f7b7bd40, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 367887947205126013, guid: cb94f48c764f1aa4c82437f7f7b7bd40, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3343,7 +3347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3539680464220460742, guid: db17aa3143740444890d42a023ed56b0, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3539680464220460742, guid: db17aa3143740444890d42a023ed56b0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3842,7 +3846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8878499615308755325, guid: 4f25477cfd4165546b681454142a1683, type: 3}
       propertyPath: m_Constraints
-      value: 80
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 8878499615308755325, guid: 4f25477cfd4165546b681454142a1683, type: 3}
       propertyPath: m_CollisionDetection

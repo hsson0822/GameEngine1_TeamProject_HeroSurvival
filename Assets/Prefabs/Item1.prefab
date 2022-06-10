@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5609124400354168259}
   - component: {fileID: 5609124400354168284}
   m_Layer: 0
-  m_Name: Item_test 1
+  m_Name: Item1
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!136 &5609124400354168259
 CapsuleCollider:

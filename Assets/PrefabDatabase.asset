@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: PrefabDatabase
   m_EditorClassIdentifier: 
   prefabs:
-  - prefabName: Enemy1
-    prefabGameObject: {fileID: 3539680464220460738, guid: db17aa3143740444890d42a023ed56b0, type: 3}
-  - prefabName: ExpBall
-    prefabGameObject: {fileID: 6669345238312362666, guid: e56cf7c9c76aedf40b454d5bd9e01da8, type: 3}
   - prefabName: Item1
     prefabGameObject: {fileID: 5055387572651055547, guid: 7a569e7f0df1e2943af218ad453fa48e, type: 3}
+  - prefabName: ExpBall
+    prefabGameObject: {fileID: 6669345238312362666, guid: e56cf7c9c76aedf40b454d5bd9e01da8, type: 3}
+  - prefabName: Enemy1
+    prefabGameObject: {fileID: 3539680464220460738, guid: db17aa3143740444890d42a023ed56b0, type: 3}
   - prefabName: Enemy2
     prefabGameObject: {fileID: 2645018721278731467, guid: fe374943cb98b074ebeb38a430fd6074, type: 3}
   - prefabName: Enemy3
