@@ -53,7 +53,7 @@ public class LevelUpSelect : MonoBehaviour
 
                 case UpgradeList.SpeedUp:
                     button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Move Speed";
-                    button[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+5";
+                    button[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+1";
                     button[i].GetComponent<Button>().onClick.AddListener(() => speedHp());
                     break;
 
@@ -70,8 +70,8 @@ public class LevelUpSelect : MonoBehaviour
                     break;
 
                 case UpgradeList.SatellitePower:
-                    button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Satellite";
-                    button[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+1";
+                    button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Satellite Attack";
+                    button[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+10";
                     button[i].GetComponent<Button>().onClick.AddListener(() => satellitePowerUp());
                     break;
             }
@@ -80,14 +80,14 @@ public class LevelUpSelect : MonoBehaviour
 
     void maxHpUp()
     {
-        InGameManager.Instance.player.GetComponent<Player>().maxHp += 10;
+        InGameManager.Instance.player.GetComponent<Player>().maxHp += 50;
         Debug.Log(InGameManager.Instance.player.GetComponent<Player>().maxHp);
         selectEnd();
     }
 
     void speedHp()
     {
-        InGameManager.Instance.player.GetComponent<Player>().moveSpeed += 5;// 10->5
+        InGameManager.Instance.player.GetComponent<Player>().moveSpeed += 1;// 10->1
         selectEnd();
     }
 

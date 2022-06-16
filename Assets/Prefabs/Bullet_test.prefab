@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7894477010985015146}
   - component: {fileID: 338557155763116284}
   - component: {fileID: -6418877316995847313}
+  - component: {fileID: 8520576249994611680}
   m_Layer: 0
   m_Name: Bullet_test
   m_TagString: Bullet
@@ -96,7 +97,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c31794d80047b1a46a4424df8a1823cf, type: 3}
 --- !u!114 &-6418877316995847313
@@ -112,3 +113,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotSpeed: 0
+--- !u!54 &8520576249994611680
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894477010982750634}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

@@ -21,7 +21,7 @@ public class Satellite : MonoBehaviour
         {
             transform.position = player.transform.position;
             transform.Translate(new Vector3(2.0f, 1f, 0f));
-            transform.Rotate(player.transform.up, 1f);
+            transform.Rotate(player.transform.up, 2f);//1->2
             yield return null;
         }
     }
