@@ -70,8 +70,8 @@ public class LevelUpSelect : MonoBehaviour
                     break;
 
                 case UpgradeList.SatellitePower:
-                    button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Satellite Attack";
-                    button[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+10";
+                    button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Satellite";
+                    button[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+1";
                     button[i].GetComponent<Button>().onClick.AddListener(() => satellitePowerUp());
                     break;
             }
@@ -105,6 +105,9 @@ public class LevelUpSelect : MonoBehaviour
 
     void satellitePowerUp()
     {
+        if (InGameManager.Instance.player.GetComponent<Player>().weaponLevel[Weapon.Satellite] == 0)
+            InGameManager.Instance.player.GetComponent<Player>().SpawnSatellite();
+
         InGameManager.Instance.player.GetComponent<Player>().weaponLevel[Weapon.Satellite]++;
         selectEnd();
     }
