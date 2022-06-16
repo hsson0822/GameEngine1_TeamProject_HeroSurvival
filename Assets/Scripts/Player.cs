@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     private int exp;
     private int level;
 
-    public float moveSpeed = 7.0f;
+    public float moveSpeed = 8.0f;
     bool dashDown;          // Get key left shift 
 
     public Dictionary<Weapon, int> weaponLevel;
@@ -119,9 +119,9 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Exp"))
         {
             collision.gameObject.SetActive(false);
-            GetExp(10);
+            GetExp(100);
             //if (exp >= maxExp[level-1])
-            if (exp >= 10)
+            if (exp >= 1000)    // 10°³ -> 1¾÷ 
             {
                 //Debug.Log("exp" + exp);
                // Debug.Log("maxexp" + maxExp[level-1]);

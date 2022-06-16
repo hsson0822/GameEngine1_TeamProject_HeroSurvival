@@ -52,7 +52,7 @@ public class InGameManager : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            if (time > 5.0f)
+            if (time > 10.0f)
             {
                 switch (index)
                 {
@@ -85,6 +85,15 @@ public class InGameManager : MonoBehaviour
 
                     case 7:
                         Wave("Enemy4");
+                        break;
+                    case 8:
+                        Wave("Enemy2");
+                        break;
+                    case 9:
+                        Wave("Enemy2");
+                        break;
+                    case 10:
+                        Wave("Enemy2");
                         break;
 
                     //case 4:
