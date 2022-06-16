@@ -26,6 +26,6 @@ public class TitleManager : MonoBehaviour
     {
         Debug.Log("AAA");
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+       // UnityEditor.EditorApplication.isPlaying = false;
     }
 }
