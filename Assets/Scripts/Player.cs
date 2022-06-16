@@ -46,6 +46,9 @@ public class Player : MonoBehaviour
         level = 1;
 
         weaponLevel = new Dictionary<Weapon, int>();
+        weaponLevel.Add(Weapon.GunSpeed, 0);
+        weaponLevel.Add(Weapon.GunPower, 0);
+        weaponLevel.Add(Weapon.Satellite, 0);
 
         maxExp = new int[10];
         InitExp();
@@ -201,5 +204,11 @@ public class Player : MonoBehaviour
             //case "Item4(Clone)":
             //    break;
         }
+    }
+
+    public void SpawnSatellite()
+    {
+        Debug.Log("Satellite");
+        satel = GameObject.Instantiate(satel);
     }
 }
