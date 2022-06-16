@@ -128,4 +128,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d7e64f9fa74364418b970ad8f29bd12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 20
+  rotateSpeed: 30

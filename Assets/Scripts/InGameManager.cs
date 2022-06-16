@@ -71,6 +71,21 @@ public class InGameManager : MonoBehaviour
                     case 3:
                         Wave("Enemy4");
                         break;
+                    case 4:
+                        Wave("Enemy1");
+                        break;
+
+                    case 5:
+                        Wave("Enemy2");
+                        break;
+
+                    case 6:
+                        Wave("Enemy3");
+                        break;
+
+                    case 7:
+                        Wave("Enemy4");
+                        break;
 
                     //case 4:
                     //Wave("Enemy1");

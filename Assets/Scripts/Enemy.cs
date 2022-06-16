@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         // 총알과의 충돌처리
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            GetDamage(10);
+            GetDamage(50);  //50수정
             Debug.Log("맞음");
             if(hp <= 0)
             {

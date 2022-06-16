@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     private int exp;
     private int level;
 
-    public float moveSpeed = 20.0f;
+    public float moveSpeed = 7.0f;
     bool dashDown;          // Get key left shift 
 
     public Dictionary<Weapon, int> weaponLevel;

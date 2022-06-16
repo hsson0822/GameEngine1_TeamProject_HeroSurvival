@@ -53,7 +53,7 @@ public class LevelUpSelect : MonoBehaviour
 
                 case UpgradeList.SpeedUp:
                     button[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Move Speed";
-                    button[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+10";
+                    button[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+5";
                     button[i].GetComponent<Button>().onClick.AddListener(() => speedHp());
                     break;
 
@@ -87,7 +87,7 @@ public class LevelUpSelect : MonoBehaviour
 
     void speedHp()
     {
-        InGameManager.Instance.player.GetComponent<Player>().moveSpeed += 10;
+        InGameManager.Instance.player.GetComponent<Player>().moveSpeed += 5;// 10->5
         selectEnd();
     }
 

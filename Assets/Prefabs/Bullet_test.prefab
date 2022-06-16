@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7894477010983884202}
   - component: {fileID: 7894477010985015146}
   - component: {fileID: 338557155763116284}
+  - component: {fileID: -6418877316995847313}
   m_Layer: 0
   m_Name: Bullet_test
   m_TagString: Bullet
@@ -98,3 +99,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c31794d80047b1a46a4424df8a1823cf, type: 3}
+--- !u!114 &-6418877316995847313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894477010982750634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f90492f708de9a47aa4802cd25b1275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotSpeed: 0
